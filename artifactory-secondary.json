@@ -1,0 +1,10 @@
+{
+  "artifactory-secondary": {
+    "high-availability": {
+        "enabled" : true,
+        "nodes": 1,
+        "cluster-home" : "/var/data/artha"
+    },
+    "artifactory-primary-url" : "http://artifactory-primary.marathon.mesos:8081/artifactory"
+  }
+}
