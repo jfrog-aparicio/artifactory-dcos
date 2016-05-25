@@ -32,6 +32,19 @@
     "ART_LOGIN": "admin",
     "ART_PASSWORD": "password"
   },
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": {
+        "value": "curl http://$HOST:9090/health"
+      },
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
   "portDefinitions": [
     {
       "port": 80,
