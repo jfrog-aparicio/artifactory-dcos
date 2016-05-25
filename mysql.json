@@ -39,11 +39,22 @@
     }
   },
   "env": {
-    "MYSQL_PASSWORD": "Password",
-    "MYSQL_ROOT_PASSWORD": "Password",
-    "MYSQL_USER": "user",
+    "MYSQL_PASSWORD": "jfrogmesos",
+    "MYSQL_ROOT_PASSWORD": "jfrogmesos",
+    "MYSQL_USER": "jfrog",
     "MYSQL_DATABASE": "artdb"
   },
+  "healthChecks": [
+    {
+      "protocol": "TCP",
+      "portIndex": 0,
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
   "portDefinitions": [
     {
       "port": 10000,
