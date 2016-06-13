@@ -30,7 +30,8 @@
     "ART_SERVER_NAME": "nginx.marathon.mesos",
     "ART_REVERSE_PROXY_METHOD": "SUBDOMAIN",
     "ART_LOGIN": "admin",
-    "ART_PASSWORD": "password"
+    "ART_PASSWORD": "password",
+    "ART_API_KEY": ""
   },
   "healthChecks": [
     {

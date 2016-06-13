@@ -34,14 +34,13 @@
     Connection-string : jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true 
     user : root {Database User}
     password : password {Database Password}
-    Artifactory-primary-license: { HA license for Artifactory}
     Artifactory-licenses: { n Licenses for Artifactory comma separated} 
 
 5. Install Artifactory-secondary:DC/OS user interface / CLI.
     ```dcos package install artifactory-secondary --option=artifactory-secondary.json```
    Provide following Values:
-   Artifactory-primary-url: http://artifactory-primary.marathon.mesos:8081/artifactory
    Cluster-Home : /var/data/artha {NFS Mount path}
+   api-key : API Key of Artifactory generated  by Artifactory-Primary to fech license from Artifactory-Primary
 
 6. Install Nginx (Artifactory LB) using Marathon
     ```dcos marathon app add nginx.json```
