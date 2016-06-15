@@ -5,7 +5,7 @@
       "connection-string": "jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true",
       "user": "root",
       "password": "jfrogmesos"
-    }
-  },
+    },
   "artifactory-licenses": "Licenses for Artifactory instances Comma separated."
+  }
 }
