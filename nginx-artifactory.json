@@ -26,12 +26,10 @@
     }
   },
   "env": {
-    "ART_PRIMARY_NODE_HOST_PORT": "artifactory-primary.marathon.mesos:8081",
     "ART_SERVER_NAME": "nginx.marathon.mesos",
     "ART_REVERSE_PROXY_METHOD": "SUBDOMAIN",
-    "ART_LOGIN": "admin",
-    "ART_PASSWORD": "password",
-    "ART_API_KEY": ""
+    "ART_LOGIN": "_internal",
+    "ART_PASSWORD": "b6a50c8a15ece8753e37cbe5700bf84f"
   },
   "healthChecks": [
     {
