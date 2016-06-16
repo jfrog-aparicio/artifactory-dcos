@@ -30,11 +30,11 @@
 4. Install artifactory-primary using DC/OS user interface / CLI.
     ```dcos package install artifactory-primary --option=artifactory-primary.json```
     Provide following Values:
-    Cluster-Home : /var/data/artha {NFS Mount path}
-    Connection-string : jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true 
-    user : root {Database User}
-    password : password {Database Password}
-    Artifactory-licenses: { n Licenses for Artifactory comma separated} 
+    cluster-Home : /var/data/artha {NFS Mount path}
+    databse-connection-string : jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true 
+    databse-user : root {Database User}
+    databse-password : password {Database Password}
+    artifactory-licenses: { n Licenses for Artifactory comma separated} 
 
 5. Install Artifactory-secondary:DC/OS user interface / CLI.
     ```dcos package install artifactory-secondary --option=artifactory-secondary.json```
@@ -52,6 +52,8 @@
 
 
 ### Now try to access your DC/OS Public Slave load balancer you should be able to access Artifactory.
+
+##To use JFrog Artifactory please visit wiki.jfrog.com
 
 
 
