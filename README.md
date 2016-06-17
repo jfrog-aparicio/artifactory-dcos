@@ -33,7 +33,7 @@
     ```dcos package install artifactory-primary --option=artifactory-primary.json```<br />
     Provide following Values:<br />
     cluster-Home : /var/data/artha {NFS Mount path}<br />
-    databse-connection-string : jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true <br />
+    databse-connection-string : jdbc:mysql://artifactory-mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true <br />
     databse-user : root {Database User}<br />
     databse-password : password {Database Password}<br />
     artifactory-licenses: { n Licenses for Artifactory comma separated} <br />
