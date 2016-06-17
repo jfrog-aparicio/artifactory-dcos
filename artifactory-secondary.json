@@ -1,8 +1,7 @@
 {
   "artifactory-secondary": {
     "nodes": 1,
-    "cluster-home": "/var/data/artha",
-    "api-key": "Provide your API key"
+    "cluster-home": "/var/data/artha"
   }
 }
 

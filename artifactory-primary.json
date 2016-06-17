@@ -2,10 +2,10 @@
   "artifactory-primary": {
     "cluster-home": "/var/data/artha",
     "database": {
-      "database-connection-string": "jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true",
+      "database-connection-string": "jdbc:mysql://artifactory-mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true",
       "database-user": "root",
       "database-password": "jfrogmesos"
     },
-  "artifactory-licenses": "Licenses for Artifactory instances Comma separated."
+    "artifactory-licenses": "Licenses for Artifactory instances Comma separated."
   }
 }

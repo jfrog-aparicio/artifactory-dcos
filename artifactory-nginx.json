@@ -1,5 +1,5 @@
 {
-  "id": "/nginx",
+  "id": "/artifactory-nginx",
   "cmd": null,
   "cpus": 0.25,
   "mem": 256,
@@ -26,8 +26,6 @@
     }
   },
   "env": {
-    "ART_SERVER_NAME": "nginx.marathon.mesos",
-    "ART_REVERSE_PROXY_METHOD": "SUBDOMAIN",
     "ART_LOGIN": "_internal",
     "ART_PASSWORD": "b6a50c8a15ece8753e37cbe5700bf84f"
   },

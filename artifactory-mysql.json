@@ -1,5 +1,5 @@
 {
-  "id": "/mysql",
+  "id": "/artifactory-mysql",
   "cmd": null,
   "cpus": 1,
   "mem": 2048,
