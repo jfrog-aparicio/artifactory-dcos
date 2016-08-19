@@ -15,3 +15,4 @@
 
 
 Bingo Now you can Start Installing Artifactory Pro or Artifactory Enterprise.
+*[Here is guide to install Artifactory Pro in DC/OS](https://github.com/JFrogDev/artifactory-dcos/blob/master/Artifactory-Pro.md)

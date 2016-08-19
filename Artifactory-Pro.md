@@ -4,7 +4,7 @@
 1. **Database (MySQL)**
 2. **Artifactory Pro License**
 
-*[Here is guide to install MySQL in DC/OS](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/install-mysql.md)
+*[Here is guide to install MySQL in DC/OS](https://github.com/JFrogDev/artifactory-dcos/blob/master/install-mysql.md)
 
 *[Go here to Get your Trial License](https://www.jfrog.com/artifactory/free-trial-mesosphere/)
 
