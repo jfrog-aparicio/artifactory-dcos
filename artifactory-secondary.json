@@ -1,7 +1,0 @@
-{
-  "artifactory-secondary": {
-    "nodes": 1,
-    "cluster-home": "/var/data/artha"
-  }
-}
-
