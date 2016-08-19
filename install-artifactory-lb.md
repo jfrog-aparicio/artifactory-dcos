@@ -27,3 +27,6 @@
 ![Artifactory-lb Health in Marathon UI](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/Artifactory-lb_Health.png)
 
 ### Awesome!! now you can access artifactory UI by going to public ip of node where Artifactory-lb is running.
+
+Here is how Artifactory UI looks like!!!
+![Artifactory UI](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/Artifactory_UI.png)

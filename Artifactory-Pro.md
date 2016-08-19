@@ -28,4 +28,4 @@ NOTE: Make sure database name, is correct in connection-string as well as userna
 
 ##NOW you are just one step away in accessing Artifactory
 
-5. [Install Artifactory-lb by following this guide] (https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/install-artifactory-lb.md)
+5. [Install Artifactory-lb by following this guide] (https://github.com/JFrogDev/artifactory-dcos/blob/master/install-artifactory-lb.md)
