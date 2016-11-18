@@ -15,10 +15,10 @@
 
 ![MySQL Networking Options](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/MySQL_Networking.png)
 
-5. Make sure MySQL is running and its healthy by looking at Marathon UI.
+5. Make sure MySQL is running and is healthy by looking at the Marathon UI.
 
 ![MySQL Health in Marathon UI](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/MySQL_Health.png)
 
 
-Bingo Now you can Start Installing Artifactory Pro or Artifactory Enterprise.
+Bingo! Now you can install Artifactory Pro or Artifactory Enterprise.
 *[Here is guide to install Artifactory Pro in DC/OS](https://github.com/JFrogDev/artifactory-dcos/blob/master/Artifactory-Pro.md)
