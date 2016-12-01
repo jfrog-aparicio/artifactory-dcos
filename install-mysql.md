@@ -7,7 +7,7 @@
 
 2. Click on Install.
 
-3. Select Advanced Installation and change to the `database` tab. Set the name to `artdb`, the username to `jfrogdcos` and the password to `jfrgodcos`. You can change the root password to whatever you like.
+3. Select Advanced Installation and change to the `database` tab. Set the name to `artdb`, the username to `jfrogdcos` and the password to `jfrogdcos`. You can change the root password to whatever you like.
 
 ![MySQL Database Options](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/MySQL_Database.png)
 
