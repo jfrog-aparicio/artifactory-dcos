@@ -12,19 +12,21 @@
 
 1. Select Artifactory Package from Universe
 
-![Artifactory Package in Universe](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/Universe_Artifactory.png)
+![Artifactory Package in Universe](images/Universe_Artifactory.png)
 
-2. Click on Install-> Advance Installation-> Pro
+2. Click on Install-> Advance Installation
 
-3. Provide license and database details as shown in screen shot
-![Artifactory Advance installation Option](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/ArtifactoryPro_Install_Option.png)
+![Artifactory_Install Option](images/Artifactory_Advance_Install.png)
 
-NOTE: Make sure database name, is correct in connection-string as well as username & password for database.
+3. Provide license and database details in service tab as shown in screen shot
+![Artifactory Advance installation Option](images/Artifactory_Service_Config.png)
+
+###NOTE: Make sure database name, is correct in connection-string as well as username & password for database.
 
 4. Install Artifactory-Pro by clicking on Review and Install button.
 
 5. Make sure Artifactory is running and its healthy by looking at Marathon UI.
-![Artifactory Health in Marathon UI](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/Artifactory_Health.png)
+![Artifactory Health in Marathon UI](images/Artifactory_Health.png)
 
 ##NOW you are just one step away in accessing Artifactory
 

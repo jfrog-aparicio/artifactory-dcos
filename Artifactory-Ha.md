@@ -2,7 +2,7 @@
 
 ##### Architecture of Artifactory HA
 
-![HA Artifactory Architecture](https://raw.githubusercontent.com/JFrogDev/artifactory-dcos/master/images/HA_Diagram.png)
+![HA Artifactory Architecture](images/HA_Diagram.png)
 
 ## To Set Up Artifactory HA in DCOS following are prerequisites:
 1. **NFS Storage**
