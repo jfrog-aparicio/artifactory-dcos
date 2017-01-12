@@ -3,6 +3,8 @@
 ## To Set Up Artifactory-lb in DC/OS following are prerequisites:
 1. **Running Artifactory**
 
+## It requires min 1 Public Slave to install Artifactory Pro or Enterprise
+
 ## Steps to install Artifactory-lb:
 
 1. Select Artifactory-lb package from Universe.

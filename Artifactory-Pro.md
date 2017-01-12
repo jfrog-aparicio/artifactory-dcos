@@ -4,6 +4,8 @@
 1. **Database (MySQL)**
 2. **Artifactory Pro License**
 
+## It requires min 1 Public Slave to install Artifactory Pro or Enterprise
+
 *[Here is guide to install MySQL in DC/OS](https://github.com/JFrogDev/artifactory-dcos/blob/master/install-mysql.md)
 
 *[Go here to Get your Trial License](https://www.jfrog.com/artifactory/free-trial-mesosphere/)
@@ -30,4 +32,4 @@
 
 ##NOW you are just one step away in accessing Artifactory
 
-5. [Install Artifactory-lb by following this guide] (https://github.com/JFrogDev/artifactory-dcos/blob/master/install-artifactory-lb.md)
+6. [Install Artifactory-lb by following this guide] (https://github.com/JFrogDev/artifactory-dcos/blob/master/install-artifactory-lb.md)

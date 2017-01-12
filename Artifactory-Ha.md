@@ -9,49 +9,77 @@
 2. **Database (MySQL, Oracle,  MS SQL and PostgreSQL)**
 3. **Artifactory Pro Enterprise Value Pack**
 
+## It requires min 1 Public Slave to install Artifactory Pro or Enterprise
 
 ## Steps to Set Up Artifactory HA:
 
-1. Add fork of Universe to DC/OS<br />
-   ```dcos package repo add JFrog https://github.com/jainishshah17/universe/archive/version-2.x.zip```
-
-2. Mount NFS Storage to Each Private Node of DC/OS Cluster.<br />
+1. Mount NFS Storage to Each Private Node of DC/OS Cluster.<br />
     For example: You have artifactoryha.mount.com:/artifactory as your mount point.
     Mount it to /var/data/artha dir of your each private node of DC/OS.<br />
-    ```sudo mount artifactoryha.mount.com:/artifactory /var/data/artha```<br />
+    ```sudo mount artifactoryha.mount.com:/artifactory /var/artifactory/```<br />
     All the nodes should share the same file storage, for now the only way is to use NFS. This requirement will be removed in the future.<br />
     Note: Provide permission to write and create subdirectories to /var/data/artha.
-
-3. Install MySQL in DC/OS using Marathon.<br />
-    ```dcos marathon app add artifactory-mysql.json```<br />
+    
+2. Install MySQL in DC/OS.<br />
+    [Here is guide to install MySQL in DC/OS](https://github.com/JFrogDev/artifactory-dcos/blob/master/install-mysql.md)
     The database is used by all the nodes to store metadata attached to artifacts.<br />
-	Ex. [artifactory-mysql.json](https://github.com/JFrogDev/artifactory-mesos/blob/master/artifactory-mysql.json)
 
-4. Install artifactory-primary using DC/OS user interface / CLI.<br />
-    ```dcos package install artifactory-primary --option=artifactory-primary.json```<br />
-    Provide following Values:<br />
-    cluster-Home : /var/data/artha {NFS Mount path}<br />
-    databse-connection-string : jdbc:mysql://artifactory-mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true <br />
-    databse-user : root {Database User}<br />
-    databse-password : password {Database Password}<br />
-    artifactory-licenses: { n Licenses for Artifactory comma separated} <br />
+3. Install artifactory-primary using DC/OS user interface.<br />
 
-5. Install Artifactory-secondary:DC/OS user interface / CLI.<br />
-    ```dcos package install artifactory-secondary --option=artifactory-secondary.json```<br />
-   Provide following Values:<br />
-   cluster-Home : /var/data/artha {NFS Mount path}<br />
-   api-key : API Key of Artifactory generated  by Artifactory-Primary to fech license from Artifactory-Primary (Optional)
+    1. Select Artifactory Package from Universe
 
-6. Install Nginx (Artifactory LB) using Marathon<br />
-    ```dcos marathon app add artifactory-nginx.json```<br />
-    Ex. [artifactory-nginx.json](https://github.com/JFrogDev/artifactory-mesos/blob/master/artifactory-nginx.json)
+    ![Artifactory Package in Universe](images/Universe_Artifactory.png)
+    
+    2. Click on Install-> Advance Installation
+    
+    ![Artifactory_Install Option](images/Artifactory_Advance_Install.png)
+    
+    3. Provide license and database details in service tab as shown in screen shot
+       ![Artifactory HA Service Option](images/Artifactory_Service_Config.png)
+       
+       ###NOTE: Make sure database name, is correct in connection-string as well as username & password for database.
+       ### Licenses: Provide all Artifactory Licenses as a single string comma separated without white spaces in string.
+    
+    4. Install Artifactory-Primary for HA cluster by clicking ENABLED under high-availability tab as showed in image.  
+       ![Artifactory HA Option](images/ArtifactoryHA_Install_Option.png)
+    
+    5. Review and Install. Make sure artifactory is running and Healthy.
+       ![Artifactory HA Option](images/ArtifactoryHA_Primary_Health.png)
 
+4. Install Artifactory-secondary:DC/OS user interface / CLI.<br />
+    1. Select Artifactory Package from Universe
+    
+        ![Artifactory Package in Universe](images/Universe_Artifactory.png)
+        
+    2. Click on Install-> Advance Installation
+        
+        ![Artifactory_Install Option](images/Artifactory_Advance_Install.png)
+        
+    3. Provide license and database details in service tab as shown in screen shot
+        ![Artifactory HA Service Option](images/Artifactory_Service_Config.png)
+           
+        ###NOTE: Make sure database name, is correct in connection-string as well as username & password for database.
+        ### Licenses: Provide all Artifactory Licenses as a single string comma separated without white spaces in string.
+        
+    4. Install Artifactory-Secondary for HA cluster by clicking ENABLED for high-availability and secondary under high-availability tab as showed in image.  
+        ![Artifactory HA Option](images/ArtifactoryHA_Secondary_Install.png)
+        
+    5. Review and Install. Make sure artifactory-secondary is running and Healthy.
+        ![Artifactory HA Option](images/ArtifactoryHA_Health.png)
+    
+        ### NOTE: API Key of Artifactory generated by Artifactory-Primary to fetch license from Artifactory-Primary (Optional)
 
-7. Go to your DC/OS Public Slave LB and change its Health Check to HTTP:9090/health {Protocol:Port/Path}
+#NOW you are just one step away in accessing Artifactory
 
+5. [Install Artifactory-lb by following this guide] (https://github.com/JFrogDev/artifactory-dcos/blob/master/install-artifactory-lb.md)
 
+6. Access Artifactory on Public IP of DC/OS public slave. 
 
 ### Now try to access your DC/OS Public Slave load balancer you should be able to access Artifactory.
+
+Here is how Artifactory UI looks like!!!
+![Artifactory UI](images/Artifactory_UI.png)
+
 
 ##To use JFrog Artifactory please visit wiki.jfrog.com
 
