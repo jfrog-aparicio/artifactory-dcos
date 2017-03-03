@@ -4,4 +4,4 @@
 
 
 ##Artifactory Enterprise Installation Guide for DC/OS
-[Install Artifactory Enterprise by following this guide] (https://github.com/JFrogDev/artifactory-dcos/blob/master/Artifactory-HA.md)
+[Install Artifactory Enterprise by following this guide] (https://github.com/JFrogDev/artifactory-dcos/blob/master/Artifactory-Ha.md)
