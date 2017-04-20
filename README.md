@@ -6,7 +6,7 @@ Artifactory requires a database named `artdb` made available (MySQL, Oracle, MS 
 
 Once you have a database available, see the following guides to install the correct version of Artifactory:
 
-+ For Artifactory Pro, follow [this guide](artifactory-pro.md).
++ For Artifactory Pro, follow [this guide](Artifactory-Pro.md).
 + For Artifactory Enterprise, follow [this guide](artifactory-enterprise.md).
 
 ## Resources
