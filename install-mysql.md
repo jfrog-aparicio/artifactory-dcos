@@ -1,24 +1,59 @@
-##MySQL Installation Guide for DC/OS
+# Setting up MySQL on DC/OS for Artifactory
 
-## Steps to Set Up MySQL:
+## Prerequisites
 
-1. Select MySQL package from Universe.
-![MySQL Package in Universe](images/Universe_MySQL.png)
+- DC/OS 1.8 or later with at least one public agent
+- [DC/OS CLI installed](https://dcos.io/docs/1.8/usage/cli/install/) and configured to use your cluster
 
-2. Click on Install.
+## Setting up MySQL:
 
-3. Select Advanced Installation and change to the `database` tab. Set the name to `artdb`, the username to `jfrogdcos` and the password to `jfrogdcos`. You can change the root password to whatever you like.
+1. Create a new file called `mysql-options.json` with following content:
 
-![MySQL Database Options](images/MySQL_Database.png)
+```
+{
+  "service": {
+    "name": "mysql"
+  },
+  "mysql": {
+    "cpus": 0.5,
+    "mem": 512
+  },
+  "database": {
+    "name": "artdb",
+    "username": "jfrogdcos",
+    "password": "jfrogdcos",
+    "root_password": "root"
+  },
+  "storage": {
+    "host_volume": "/tmp",
+    "persistence": {
+      "enable": false,
+      "volume_size": 256,
+      "external": {
+        "enable": false,
+        "volume_name": "mysql",
+        "provider": "dvdi",
+        "driver": "rexray"
+      }
+    }
+  },
+  "networking": {
+    "port": 3306,
+    "host_mode": true,
+    "external_access": {
+      "enable": false,
+      "external_access_port": 13306
+    }
+  }
+}
+```
 
-4. Change to the `networking` tab. Tick the `host_mode` checkbox to use port `3306`. Once this is done, go ahead and install.
+2. Run this command to install MySQL:
 
-![MySQL Networking Options](images/MySQL_Networking.png)
+```
+dcos package install --options=mysql-options.json mysql
+```
 
-5. Make sure MySQL is running and is healthy by looking under the Services tab in the DC/OS UI.
+3. Make sure MySQL is running and is healthy by looking under the Services tab in the DC/OS UI.
 
-![MySQL Health in DC/OS UI](images/MySQL_Health.png)
-
-
-Bingo! Now you can install Artifactory Pro or Artifactory Enterprise.
-*[Here is guide to install Artifactory Pro in DC/OS](Artifactory-Pro.md)
+This should be sufficient to trial the Artifactory package but we do not currently recommend using this for a production deployment of Artifactory.

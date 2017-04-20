@@ -1,35 +1,48 @@
-##Artifactory-Pro Installation Guide for DC/OS
+# Setting up Artifactory Pro on DC/OS
 
-## To Set Up Artifactory HA in DC/OS following are prerequisites:
-1. **Database (MySQL)**
-2. **Artifactory Pro License**
+## Prerequisites
 
-## It requires min 1 Public Slave to install Artifactory Pro or Enterprise
+- DC/OS 1.8 or later with at least one public agent
+- [DC/OS CLI installed](https://dcos.io/docs/1.8/usage/cli/install/) and configured to use your cluster
+- Database (MySQL, Oracle, MS SQL Server or Postgres)
+- Artifactory Enterprise license
 
-*[Here is guide to install MySQL in DC/OS](install-mysql.md)
+## Setting up Artifactory Pro
 
-*[Go here to Get your Trial License](https://www.jfrog.com/artifactory/free-trial-mesosphere/)
+1. Create a new file called `artifactory-pro-options.json` with the following content.
 
-*Steps to Install Artifactory Pro
+Be sure to:
 
-1. Select Artifactory Package from Universe
+- replace `service.licenses` with your own license string
+- replace `service.database.user` and `service.database.password` with the correct credentials if you have customised these
+- replace `artdb` within `service.database.url` with the correct database name if you have used a different one
 
-![Artifactory Package in Universe](images/Universe_Artifactory.png)
+```
+{
+  "service": {
+    "name": "artifactory",
+    "licenses": "replaceme",
+    "host-volume": "/var/artifactory",
+    "database": {
+      "type": "mysql",
+      "host": "mysql.marathon.mesos",
+      "port": 3306,
+      "url": "jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true",
+      "user": "jfrogdcos",
+      "password": "jfrogdcos"
+    }
+  }
+}
+```
 
-2. Click on Install-> Advance Installation
+2. Run the following DC/OS CLI command to install Artifactory Pro:
 
-![Artifactory_Install Option](images/Artifactory_Advance_Install.png)
+```
+dcos package install --options=artifactory-pro-options.json artifactory
+```
 
-3. Provide license and database details in service tab as shown in screen shot
-![Artifactory Advance installation Option](images/Artifactory_Service_Config.png)
+3. Check that Artifactory is up and running successfully by checking the "Services" tab of DC/OS.
 
-###NOTE: Make sure database name, is correct in connection-string as well as username & password for database.
+### Install Artifactory-lb
 
-4. Install Artifactory-Pro by clicking on Review and Install button.
-
-5. Make sure Artifactory is running and its healthy by looking at Marathon UI.
-![Artifactory Health in Marathon UI](images/Artifactory_Health.png)
-
-##NOW you are just one step away from accessing Artifactory
-
-6. [Install Artifactory-lb by following this guide](install-artifactory-lb.md)
+Once Artifactory is up and running, [follow this guide to set up Artifactory-lb](artifactory-lb.md).
